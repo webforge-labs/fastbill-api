@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Tue, 22 Oct 2013 09:33:13 GMT
+Server: Apache
+Cache-Control: no-store
+Last-Modified: Tue, 22 Oct 2013 09:33:13 GMT
+Set-Cookie: FastBillSESSID=p8bdg1fv6k79k2t7fbe8rq8ha4; path=/
+Vary: Accept-Encoding
+Content-Length: 1492
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+{"REQUEST":{"SERVICE":"customer.get","FILTER":[]},"RESPONSE":{"CUSTOMERS":[{"CUSTOMER_ID":"460166","CUSTOMER_NUMBER":"80","DAYS_FOR_PAYMENT":"14","CREATED":"2013-10-18 12:34:08","PAYMENT_TYPE":"1","BANK_NAME":"","BANK_ACCOUNT_NUMBER":"","BANK_CODE":"","BANK_ACCOUNT_OWNER":"","SHOW_PAYMENT_NOTICE":"1","ACCOUNT_RECEIVABLE":"","CUSTOMER_TYPE":"business","TOP":"0","NEWSLETTER_OPTIN":"0","ORGANIZATION":"Dr. M\u00fcller GmbH (DEMO)","POSITION":"","SALUTATION":"mr","FIRST_NAME":"Mark","LAST_NAME":"M\u00fcller","ADDRESS":"Bahnhofstr. 33","ADDRESS_2":"","ZIPCODE":"14480","CITY":"Potsdam","COUNTRY_CODE":"DE","PHONE":"0331-55512345","PHONE_2":"","FAX":"","MOBILE":"","EMAIL":"info@drmuellergmbh.de","VAT_ID":"","CURRENCY_CODE":"EUR","LASTUPDATE":"2013-10-18 12:34:08","TAGS":""},{"CUSTOMER_ID":"460168","CUSTOMER_NUMBER":"81","DAYS_FOR_PAYMENT":"0","CREATED":"2013-10-18 12:34:08","PAYMENT_TYPE":"5","BANK_NAME":"","BANK_ACCOUNT_NUMBER":"","BANK_CODE":"","BANK_ACCOUNT_OWNER":"","SHOW_PAYMENT_NOTICE":"1","ACCOUNT_RECEIVABLE":"","CUSTOMER_TYPE":"business","TOP":"0","NEWSLETTER_OPTIN":"0","ORGANIZATION":"Lightspeed Logistik OHG (DEMO)","POSITION":"","SALUTATION":"mrs","FIRST_NAME":"Jessica","LAST_NAME":"Light","ADDRESS":"An der Autobahn 3","ADDRESS_2":"","ZIPCODE":"66123","CITY":"Saarbr\u00fccken","COUNTRY_CODE":"DE","PHONE":"0681-5559876","PHONE_2":"","FAX":"","MOBILE":"","EMAIL":"jl@lightspeed-online.de","VAT_ID":"","CURRENCY_CODE":"EUR","LASTUPDATE":"2013-10-18 12:34:08","TAGS":""}]}}

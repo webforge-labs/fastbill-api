@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Mon, 21 Oct 2013 15:26:09 GMT
+Server: Apache
+Cache-Control: no-store
+Last-Modified: Mon, 21 Oct 2013 15:26:09 GMT
+Set-Cookie: FastBillSESSID=laban33o54oe2tdogg646ftse4; path=/
+Vary: Accept-Encoding
+Content-Length: 112
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+{"REQUEST":{"SERVICE":"customer.get","FILTER":[{"TERM":"Lightspeed Logistik OHG"}]},"RESPONSE":{"CUSTOMERS":[]}}

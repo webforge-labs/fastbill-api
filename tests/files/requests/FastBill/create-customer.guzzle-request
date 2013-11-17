@@ -1,0 +1,45 @@
+POST /api/1.0/api.php HTTP/1.1
+Host: my.fastbill.com
+User-Agent: Guzzle/3.7.4 curl/7.30.0 PHP/5.4.15
+Content-Type: application/json
+Authorization: (normalized)
+Content-Length: 987
+
+{
+    "SERVICE": "customer.create",
+    "DATA": {
+        "CUSTOMER_ID": null,
+        "CUSTOMER_NUMBER": null,
+        "CREATED": null,
+        "CUSTOMER_TYPE": "business",
+        "TOP": null,
+        "ORGANIZATION": "[A] [C]ompany that [M]anufactures [E]verything Inc.",
+        "POSITION": null,
+        "SALUTATION": null,
+        "FIRST_NAME": null,
+        "LAST_NAME": null,
+        "ADDRESS": null,
+        "ADDRESS_2": null,
+        "ZIPCODE": null,
+        "CITY": null,
+        "COUNTRY_CODE": "US",
+        "PHONE": null,
+        "PHONE_2": null,
+        "FAX": null,
+        "MOBILE": null,
+        "EMAIL": null,
+        "NEWSLETTER_OPTIN": null,
+        "LASTUPDATE": null,
+        "TAGS": null,
+        "ACCOUNT_RECEIVABLE": null,
+        "CURRENCY_CODE": null,
+        "VAT_ID": null,
+        "DAYS_FOR_PAYMENT": null,
+        "PAYMENT_TYPE": 6,
+        "SHOW_PAYMENT_NOTICE": null,
+        "BANK_NAME": null,
+        "BANK_CODE": null,
+        "BANK_ACCOUNT_NUMBER": null,
+        "BANK_ACCOUNT_OWNER": null
+    }
+}

@@ -1,0 +1,10 @@
+/vendor/
+/vendor
+
+/etc/config.json
+
+/fastbill-mite.sublime-workspace
+/build
+/node_modules
+
+/fastbill-api.sublime-workspace

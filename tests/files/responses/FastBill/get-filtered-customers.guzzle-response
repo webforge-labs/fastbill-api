@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Tue, 22 Oct 2013 11:05:56 GMT
+Server: Apache
+Cache-Control: no-store
+Last-Modified: Tue, 22 Oct 2013 11:05:56 GMT
+Set-Cookie: FastBillSESSID=17mudmoqsr8jf0upq92vkej7d0; path=/
+Vary: Accept-Encoding
+Content-Length: 798
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+{"REQUEST":{"SERVICE":"customer.get","FILTER":{"TERM":"m\u00fcller"}},"RESPONSE":{"CUSTOMERS":[{"CUSTOMER_ID":"460166","CUSTOMER_NUMBER":"80","DAYS_FOR_PAYMENT":"14","CREATED":"2013-10-18 12:34:08","PAYMENT_TYPE":"1","BANK_NAME":"","BANK_ACCOUNT_NUMBER":"","BANK_CODE":"","BANK_ACCOUNT_OWNER":"","SHOW_PAYMENT_NOTICE":"1","ACCOUNT_RECEIVABLE":"","CUSTOMER_TYPE":"business","TOP":"0","NEWSLETTER_OPTIN":"0","ORGANIZATION":"Dr. M\u00fcller GmbH (DEMO)","POSITION":"","SALUTATION":"mr","FIRST_NAME":"Mark","LAST_NAME":"M\u00fcller","ADDRESS":"Bahnhofstr. 33","ADDRESS_2":"","ZIPCODE":"14480","CITY":"Potsdam","COUNTRY_CODE":"DE","PHONE":"0331-55512345","PHONE_2":"","FAX":"","MOBILE":"","EMAIL":"info@drmuellergmbh.de","VAT_ID":"","CURRENCY_CODE":"EUR","LASTUPDATE":"2013-10-18 12:34:08","TAGS":""}]}}

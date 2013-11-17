@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+      "folders_ignore_patterns": "vendor"
+		}
+	]
+}

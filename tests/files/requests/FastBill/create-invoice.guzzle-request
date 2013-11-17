@@ -1,0 +1,62 @@
+POST /api/1.0/api.php HTTP/1.1
+Host: my.fastbill.com
+User-Agent: Guzzle/3.7.4 curl/7.30.0 PHP/5.4.15
+Content-Type: application/json
+Authorization: (normalized)
+Content-Length: 1645
+
+{
+    "SERVICE": "invoice.create",
+    "DATA": {
+        "INVOICE_ID": null,
+        "TYPE": null,
+        "CUSTOMER_ID": "460166",
+        "CUSTOMER_NUMBER": null,
+        "CUSTOMER_COSTCENTER_ID": null,
+        "PROJECT_ID": null,
+        "CURRENCY_CODE": null,
+        "TEMPLATE_ID": null,
+        "INVOICE_NUMBER": null,
+        "INTROTEXT": null,
+        "PAID_DATE": null,
+        "IS_CANCELED": null,
+        "INVOICE_DATE": null,
+        "DUE_DATE": null,
+        "DELIVERY_DATE": null,
+        "CASH_DISCOUNT_PERCENT": null,
+        "CASH_DISCOUNT_DAYS": null,
+        "ITEMS": [
+            {
+                "INVOICE_ITEM_ID": null,
+                "ARTICLE_NUMBER": null,
+                "DESCRIPTION": "Webdesign",
+                "QUANTITY": null,
+                "UNIT_PRICE": "80.00",
+                "UNIT": "Stunde",
+                "VAT_PERCENT": 19,
+                "VAT_VALUE": null,
+                "COMPLETE_NET": null,
+                "COMPLETE_GROSS": null,
+                "SORT_ORDER": null
+            },
+            {
+                "INVOICE_ITEM_ID": null,
+                "ARTICLE_NUMBER": null,
+                "DESCRIPTION": "Luftfracht-Workshop",
+                "QUANTITY": 13.833333333333,
+                "UNIT_PRICE": "41.50",
+                "UNIT": "Stunde",
+                "VAT_PERCENT": 19,
+                "VAT_VALUE": null,
+                "COMPLETE_NET": null,
+                "COMPLETE_GROSS": null,
+                "SORT_ORDER": null
+            }
+        ],
+        "DOCUMENT_URL": null,
+        "VAT_ITEMS": null,
+        "SUB_TOTAL": null,
+        "VAT_TOTAL": null,
+        "TOTAL": null
+    }
+}

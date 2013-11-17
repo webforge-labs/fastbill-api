@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Fri, 18 Oct 2013 16:22:11 GMT
+Server: Apache
+Cache-Control: no-store
+Last-Modified: Fri, 18 Oct 2013 16:22:11 GMT
+Set-Cookie: FastBillSESSID=mcibtvbb2hvgedbqnl0c4holk0; path=/
+Vary: Accept-Encoding
+Content-Length: 239
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+{"REQUEST":{"SERVICE":"invoice.create","DATA":{"CUSTOMER_ID":1,"INVOICE_DATE":"2013-10-18","ITEMS":{"DESCRIPTION":"Programmierung","UNIT_PRICE":"50.00","VAT_PERCENT":19,"QUANTITY":240}}},"RESPONSE":{"STATUS":"success","INVOICE_ID":697138}}

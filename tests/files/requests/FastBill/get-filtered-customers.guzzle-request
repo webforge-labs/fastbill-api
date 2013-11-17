@@ -1,0 +1,8 @@
+POST /api/1.0/api.php HTTP/1.1
+Host: my.fastbill.com
+User-Agent: Guzzle/3.7.4 curl/7.30.0 PHP/5.4.15
+Content-Type: application/json
+Authorization: (normalized)
+Content-Length: 58
+
+{"SERVICE":"customer.get","FILTER":{"TERM":"m\u00fcller"}}

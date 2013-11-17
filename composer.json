@@ -1,0 +1,29 @@
+{
+  "name":"fastbill/api",
+  "authors":[
+    {
+      "name":"Philipp Scheit",
+      "email":"p.scheit@ps-webforge.com"
+    }
+  ],
+  "minimum-stability":"dev",
+  "autoload":{
+    "psr-0":{
+      "FastBill\\Api":["lib/", "tests/"],
+      "FastBill\\Model":["lib/", "tests/"]
+    }
+  },
+  "require":{
+    "beberlei/assert": "1.5@stable",
+    "webforge/common": "1.5.*@stable"
+  },
+  "require-dev": {
+    "webforge/testplate": "1.*",
+    "webforge/dom": "1.*@dev"
+  },
+  "extra":{
+    "branch-alias":{
+      "dev-master":"1.0.x-dev"
+    }
+  }
+}
