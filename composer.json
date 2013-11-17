@@ -15,7 +15,8 @@
   },
   "require":{
     "beberlei/assert": "1.5@stable",
-    "webforge/common": "1.5.*@stable"
+    "webforge/common": "1.5.*@stable",
+    "guzzle/guzzle": "3.7.*@stable"
   },
   "require-dev": {
     "webforge/testplate": "1.*",
