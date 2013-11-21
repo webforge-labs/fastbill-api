@@ -6,6 +6,7 @@
       "email":"p.scheit@ps-webforge.com"
     }
   ],
+  "license": "MIT",
   "minimum-stability":"dev",
   "autoload":{
     "psr-0":{
