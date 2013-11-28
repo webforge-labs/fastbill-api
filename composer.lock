@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8a4f3382dd41d89afab92a5c26d1621a",
+    "hash": "3dc772ddf0e7144f5b0236d1536e8c1b",
     "packages": [
         {
             "name": "beberlei/assert",
-            "version": "v1.5",
+            "version": "v1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "b01a2868fcebcefc14ce3ae240d5b2fbba1d7126"
+                "reference": "6c0069d271323e441c47d2ff26cb18cf3b7cc695"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/b01a2868fcebcefc14ce3ae240d5b2fbba1d7126",
-                "reference": "b01a2868fcebcefc14ce3ae240d5b2fbba1d7126",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/6c0069d271323e441c47d2ff26cb18cf3b7cc695",
+                "reference": "6c0069d271323e441c47d2ff26cb18cf3b7cc695",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2013-10-01 11:37:27"
+            "time": "2013-11-05 12:28:46"
         },
         {
             "name": "doctrine/collections",
@@ -260,12 +260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "d51d78b34c1d9dcc384ba48155105fe99284dd67"
+                "reference": "07244506ed46ff1914596e13ccc09666ecf7e06d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/d51d78b34c1d9dcc384ba48155105fe99284dd67",
-                "reference": "d51d78b34c1d9dcc384ba48155105fe99284dd67",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/07244506ed46ff1914596e13ccc09666ecf7e06d",
+                "reference": "07244506ed46ff1914596e13ccc09666ecf7e06d",
                 "shasum": ""
             },
             "require": {
@@ -281,7 +281,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -305,7 +305,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-17 11:48:11"
+            "time": "2013-11-24 20:17:07"
         },
         {
             "name": "symfony/process",
@@ -314,12 +314,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "82898108f79040314a7b3ba430a72c32c7f61d14"
+                "reference": "b09d36ac19d221e2e457a1457e6eef9c215845a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/82898108f79040314a7b3ba430a72c32c7f61d14",
-                "reference": "82898108f79040314a7b3ba430a72c32c7f61d14",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/b09d36ac19d221e2e457a1457e6eef9c215845a7",
+                "reference": "b09d36ac19d221e2e457a1457e6eef9c215845a7",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-10-30 08:30:20"
+            "time": "2013-11-25 14:52:16"
         },
         {
             "name": "webforge/collections",
@@ -404,16 +404,16 @@
         },
         {
             "name": "webforge/common",
-            "version": "1.5.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-common.git",
-                "reference": "c0a777dd4e5b4aeef59445ca3269df77ec7ec67d"
+                "reference": "2e1303a109b249e0982246b59e8af6fbf8755c6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-common/zipball/c0a777dd4e5b4aeef59445ca3269df77ec7ec67d",
-                "reference": "c0a777dd4e5b4aeef59445ca3269df77ec7ec67d",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-common/zipball/2e1303a109b249e0982246b59e8af6fbf8755c6b",
+                "reference": "2e1303a109b249e0982246b59e8af6fbf8755c6b",
                 "shasum": ""
             },
             "require": {
@@ -421,18 +421,20 @@
                 "php": ">=5.3.2",
                 "seld/jsonlint": "1.1.*@stable",
                 "webforge/collections": "1.0.*@stable",
-                "webforge/process": "1.0.*@beta"
+                "webforge/process": "1.1.*@dev"
             },
             "require-dev": {
+                "apigen/apigen": "dev-master",
                 "liip/rmt": "0.9.*",
                 "mikey179/vfsstream": "1.2.*@stable",
                 "mockery/mockery": "@stable",
+                "satooshi/php-coveralls": "dev-master",
                 "webforge/testplate": ">=1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.7.x-dev"
                 }
             },
             "autoload": {
@@ -458,20 +460,20 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2013-10-23 12:43:04"
+            "time": "2013-11-21 09:29:53"
         },
         {
             "name": "webforge/process",
-            "version": "1.0.3-beta",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-process.git",
-                "reference": "812c5addf636c270c90c9e72d4bcf838132a17e6"
+                "reference": "e7c28dafcd2974370bf289cfe756cd9299c55b08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-process/zipball/812c5addf636c270c90c9e72d4bcf838132a17e6",
-                "reference": "812c5addf636c270c90c9e72d4bcf838132a17e6",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-process/zipball/e7c28dafcd2974370bf289cfe756cd9299c55b08",
+                "reference": "e7c28dafcd2974370bf289cfe756cd9299c55b08",
                 "shasum": ""
             },
             "require": {
@@ -480,6 +482,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "0.8.*@stable",
+                "satooshi/php-coveralls": "dev-master",
                 "symfony/console": "2.3.*@stable",
                 "symfony/finder": "2.3.*@stable",
                 "webforge/testplate": ">=1.3"
@@ -487,7 +490,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -508,7 +511,7 @@
                     "email": "p.scheit@ps-webforge.com"
                 }
             ],
-            "time": "2013-10-21 08:50:26"
+            "time": "2013-11-11 19:47:24"
         }
     ],
     "packages-dev": [
@@ -608,12 +611,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-testplate.git",
-                "reference": "c1d58c95823500b2b3a7578e0b0d86293a27cf68"
+                "reference": "067d66d9a4bb68fd36913cf52d666d7b63fcfdf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-testplate/zipball/c1d58c95823500b2b3a7578e0b0d86293a27cf68",
-                "reference": "c1d58c95823500b2b3a7578e0b0d86293a27cf68",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-testplate/zipball/067d66d9a4bb68fd36913cf52d666d7b63fcfdf4",
+                "reference": "067d66d9a4bb68fd36913cf52d666d7b63fcfdf4",
                 "shasum": ""
             },
             "require": {
@@ -656,7 +659,7 @@
                 }
             ],
             "description": "Testplate for webforge for base testcases",
-            "time": "2013-11-13 11:54:08"
+            "time": "2013-11-19 14:32:00"
         }
     ],
     "aliases": [
@@ -665,7 +668,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "beberlei/assert": 0,
-        "webforge/common": 0,
         "guzzle/guzzle": 0,
         "webforge/dom": 20
     },

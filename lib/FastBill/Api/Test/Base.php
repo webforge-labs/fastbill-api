@@ -185,7 +185,7 @@ class Base extends \Webforge\Code\Test\Base {
     $actualHeaders = $request->getHeaders()->toArray();
 
     $filter = function($headerName, $value) {
-      return !in_array(mb_strtolower($headerName), array('content-length', 'authorization'));
+      return !in_array(mb_strtolower($headerName), array('content-length', 'authorization', 'user-agent'));
     };
 
     $this->assertEquals(
