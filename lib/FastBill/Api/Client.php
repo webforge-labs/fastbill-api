@@ -6,6 +6,7 @@ use FastBill\Model\Customer;
 use FastBill\Model\Invoice;
 use FastBill\Model\InvoiceItem;
 use FastBill\Model\Project;
+use FastBill\Model\Expense;
 use Guzzle\HTTP\Message\Request as GuzzleRequest;
 use Guzzle\HTTP\Message\Response as GuzzleResponse;
 use Guzzle\HTTP\Client as GuzzleClient;
@@ -172,6 +173,31 @@ class Client extends AbstractClient {
     }
 
     return $projects;
+  }
+
+  public function getExpenses(Array $filters = array()) {
+    $requestBody = (object) array(
+      'SERVICE' => 'expense.get'
+    );
+
+    $this->filtersToXml($filters, $requestBody);
+
+    $jsonResponse = $this->validateResponse(
+      $this->dispatchRequest(
+        $this->createRequest('POST', '/', $requestBody)
+      ),
+      function ($response, &$msg) {
+        $msg = 'key EXPENSES is not set';
+        return isset($response->EXPENSES);
+      }
+    );
+
+    $expenses = array();
+    foreach ($jsonResponse->RESPONSE->EXPENSES as $xml) {
+      $expenses[] = Expense::fromObject($xml);
+    }
+
+    return $expenses;
   }
 
   protected function expandUrl($relativeResource) {
