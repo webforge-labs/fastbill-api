@@ -34,6 +34,7 @@ class Invoice extends AbstractModel {
     'CURRENCY_CODE'=>'currencyCode',    
     'TEMPLATE_ID'=>'templateId',
     'INVOICE_NUMBER'=>'invoiceNumber',
+    'INVOICE_TITLE'=>'title',
     'INTROTEXT'=>'introtext',
     'PAID_DATE'=>'paidDate',
     'IS_CANCELED'=>'isCanceled',
