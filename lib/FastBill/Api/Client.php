@@ -20,7 +20,8 @@ class Client extends AbstractClient {
   protected $apiKey, $email;
 
   public function __construct(GuzzleClient $guzzleClient, Array $options) {
-    $guzzleClient->setBaseUrl("https://my.fastbill.com/");
+//    $guzzleClient->setBaseUrl("https://my.fastbill.com/");
+    $guzzleClient->setBaseUrl("https://automatic.fastbill.com/api/1.0/api.php");
     parent::__construct($guzzleClient);
 
     if (!array_key_exists('apiKey', $options) || empty($options['apiKey'])) {
@@ -220,9 +221,8 @@ class Client extends AbstractClient {
 
     $msg = NULL;
     if (!$validateResponse($jsonResponse->RESPONSE, $msg)) {
-      throw new RuntimeException('The Request to the FastBill-API has failed. '.$msg.' Data:'."\n$stringified");
+      throw BadRequestException::fromResponse($jsonResponse);
     }
-
 
     return $jsonResponse;
   }
