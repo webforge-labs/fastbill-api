@@ -15,13 +15,11 @@ use RuntimeException;
 use Assert\Assertion;
 use Webforge\Common\JS\JSONConverter;
 
-class Client extends AbstractClient {
+abstract class AbstractFastBillClient extends AbstractClient {
 
   protected $apiKey, $email;
 
   public function __construct(GuzzleClient $guzzleClient, Array $options) {
-//    $guzzleClient->setBaseUrl("https://my.fastbill.com/");
-    $guzzleClient->setBaseUrl("https://automatic.fastbill.com/api/1.0/api.php");
     parent::__construct($guzzleClient);
 
     if (!array_key_exists('apiKey', $options) || empty($options['apiKey'])) {
@@ -42,18 +40,18 @@ class Client extends AbstractClient {
    */
   public function createInvoice(Invoice $invoice) {
     $requestBody = array(
-      'SERVICE' => 'invoice.create',
-      'DATA' => $invoice->serializeJSONXML()
+        'SERVICE' => 'invoice.create',
+        'DATA' => $invoice->serializeJSONXML()
     );
 
     $jsonResponse = $this->validateResponse(
-      $this->dispatchRequest(
-        $this->createRequest('POST', '/', $requestBody)
-      ),
-      function ($response, &$msg) {
-        $msg = 'STATUS is not equal to success';
-        return isset($response->STATUS) && $response->STATUS === 'success';
-      }
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'STATUS is not equal to success';
+          return isset($response->STATUS) && $response->STATUS === 'success';
+        }
     );
 
     $invoice->setInvoiceId($jsonResponse->RESPONSE->INVOICE_ID);
@@ -63,25 +61,25 @@ class Client extends AbstractClient {
 
   /**
    * Creates a customer (not matter if it exists)
-   * 
+   *
    * the object as parameter is returned as result but the new id will be set (or overridden)
-   * 
+   *
    * @return FastBill\Model\Customer
    */
   public function createCustomer(Customer $customer) {
     $requestBody = array(
-      'SERVICE' => 'customer.create',
-      'DATA' => $customer->serializeJSONXML()
+        'SERVICE' => 'customer.create',
+        'DATA' => $customer->serializeJSONXML()
     );
 
     $jsonResponse = $this->validateResponse(
-      $this->dispatchRequest(
-        $this->createRequest('POST', '/', $requestBody)
-      ),
-      function ($response, &$msg) {
-        $msg = 'key STATUS is not equal to success';
-        return isset($response->STATUS) && $response->STATUS === 'success';
-      }
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'key STATUS is not equal to success';
+          return isset($response->STATUS) && $response->STATUS === 'success';
+        }
     );
 
     $customer->setCustomerId($jsonResponse->RESPONSE->CUSTOMER_ID);
@@ -91,19 +89,19 @@ class Client extends AbstractClient {
 
   public function getCustomers(Array $filters = array()) {
     $requestBody = (object) array(
-      'SERVICE' => 'customer.get'
+        'SERVICE' => 'customer.get'
     );
 
     $this->filtersToXml($filters, $requestBody);
 
     $jsonResponse = $this->validateResponse(
-      $this->dispatchRequest(
-        $this->createRequest('POST', '/', $requestBody)
-      ),
-      function ($response, &$msg) {
-        $msg = 'key CUSTOMERS is not set';
-        return isset($response->CUSTOMERS);
-      }
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'key CUSTOMERS is not set';
+          return isset($response->CUSTOMERS);
+        }
     );
 
     $customers = array();
@@ -128,19 +126,19 @@ class Client extends AbstractClient {
 
   public function getInvoices(Array $filters = array()) {
     $requestBody = (object) array(
-      'SERVICE' => 'invoice.get'
+        'SERVICE' => 'invoice.get'
     );
 
     $this->filtersToXml($filters, $requestBody);
 
     $jsonResponse = $this->validateResponse(
-      $this->dispatchRequest(
-        $this->createRequest('POST', '/', $requestBody)
-      ),
-      function ($response, &$msg) {
-        $msg = 'key INVOICES is not set';
-        return isset($response->INVOICES);
-      }
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'key INVOICES is not set';
+          return isset($response->INVOICES);
+        }
     );
 
     $invoices = array();
@@ -153,19 +151,19 @@ class Client extends AbstractClient {
 
   public function getProjects(Array $filters = array()) {
     $requestBody = (object) array(
-      'SERVICE' => 'project.get'
+        'SERVICE' => 'project.get'
     );
 
     $this->filtersToXml($filters, $requestBody);
 
     $jsonResponse = $this->validateResponse(
-      $this->dispatchRequest(
-        $this->createRequest('POST', '/', $requestBody)
-      ),
-      function ($response, &$msg) {
-        $msg = 'key PROJECTS is not set';
-        return isset($response->PROJECTS);
-      }
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'key PROJECTS is not set';
+          return isset($response->PROJECTS);
+        }
     );
 
     $projects = array();
@@ -178,19 +176,19 @@ class Client extends AbstractClient {
 
   public function getExpenses(Array $filters = array()) {
     $requestBody = (object) array(
-      'SERVICE' => 'expense.get'
+        'SERVICE' => 'expense.get'
     );
 
     $this->filtersToXml($filters, $requestBody);
 
     $jsonResponse = $this->validateResponse(
-      $this->dispatchRequest(
-        $this->createRequest('POST', '/', $requestBody)
-      ),
-      function ($response, &$msg) {
-        $msg = 'key EXPENSES is not set';
-        return isset($response->EXPENSES);
-      }
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'key EXPENSES is not set';
+          return isset($response->EXPENSES);
+        }
     );
 
     $expenses = array();
