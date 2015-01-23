@@ -17,6 +17,15 @@ to run the tests use:
 phpunit
 ```
 
+## simple usage
+
+### creating models
+```php
+$customer = Customer::fromArray(
+  'customerId'=> 1234
+));
+```
+
 ## roadmap
 
 Status: This is a development version, yet! The API can be still a subject to changes.
