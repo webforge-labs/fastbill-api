@@ -9,7 +9,9 @@ class BadRequestException extends \RuntimeException {
     public static function fromResponse(\stdClass $jsonResponse)
     {
         $e = new static('The Request to the FastBill-API has failed.');
-        $e->setErrors($jsonResponse->RESPONSE->ERRORS);
+        if (isset($jsonResponse->RESPONSE->ERRORS)) {
+            $e->setErrors($jsonResponse->RESPONSE->ERRORS);
+        }
 
         return $e;
     }

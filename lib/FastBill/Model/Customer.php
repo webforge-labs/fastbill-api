@@ -18,6 +18,7 @@ class Customer extends AbstractModel {
   protected static $xmlProperties = array(
     'CUSTOMER_ID'=>'customerId',
     'CUSTOMER_NUMBER'=>'customerNumber',
+    'CUSTOMER_EXT_UID'=>'customerExtUid',
     'CREATED'=>'created',
     'CUSTOMER_TYPE'=>'customerType',
     'TOP'=>'top',
@@ -36,6 +37,7 @@ class Customer extends AbstractModel {
     'FAX'=>'fax',
     'MOBILE'=>'mobile',
     'EMAIL'=>'email',
+    'HASH'=>'hash',
 
      // missing in docs, but in API
     'NEWSLETTER_OPTIN'=>'newsletterOptin',
