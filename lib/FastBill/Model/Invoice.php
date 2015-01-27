@@ -46,7 +46,6 @@ class Invoice extends AbstractModel {
     'ITEMS'=>'items',
     'DOCUMENT_URL'=>'documentUrl',
 
-    'VAT_ITEMS'=>'vatItems', // ???
     'SUB_TOTAL'=>'subTotal',
     'VAT_TOTAL'=>'vatTotal',
     'TOTAL'=>'total',
