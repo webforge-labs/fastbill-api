@@ -65,6 +65,29 @@ class FastBillAutomaticClient extends AbstractFastBillClient
     return $subscription;
   }
 
+  /**
+   * @return FastBill\Model\Subscription
+   */
+  public function reactivateSubscription(Subscription $subscription)
+  {
+    $requestBody = array(
+      'SERVICE' => 'subscription.reactivate',
+      'DATA' => $subscription->serializeJSONXML()
+    );
+
+    $jsonResponse = $this->validateResponse(
+      $this->dispatchRequest(
+        $this->createRequest('POST', '/', $requestBody)
+      ),
+      function ($response, &$msg) {
+        $msg = 'STATUS is not equal to success';
+        return isset($response->STATUS) && $response->STATUS === 'success';
+      }
+    );
+
+    return $subscription;
+  }
+
   public function getSubscriptions(Array $filters = array())
   {
     $requestBody = (object)array(
