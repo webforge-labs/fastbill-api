@@ -10,6 +10,7 @@ Content-Length: 987
     "DATA": {
         "CUSTOMER_ID": null,
         "CUSTOMER_NUMBER": null,
+        "CUSTOMER_EXT_UID": null,
         "CREATED": null,
         "CUSTOMER_TYPE": "business",
         "TOP": null,
@@ -28,6 +29,7 @@ Content-Length: 987
         "FAX": null,
         "MOBILE": null,
         "EMAIL": null,
+        "HASH": null,
         "NEWSLETTER_OPTIN": null,
         "LASTUPDATE": null,
         "TAGS": null,

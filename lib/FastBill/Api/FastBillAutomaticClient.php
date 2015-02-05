@@ -2,6 +2,7 @@
 
 namespace FastBill\Api;
 
+use FastBill\Model\Article;
 use FastBill\Model\Subscription;
 
 use Guzzle\HTTP\Client as GuzzleClient;
@@ -36,6 +37,29 @@ class FastBillAutomaticClient extends AbstractFastBillClient
     );
 
     $subscription->setSubscriptionId($jsonResponse->RESPONSE->SUBSCRIPTION_ID);
+
+    return $subscription;
+  }
+
+  /**
+   * @return FastBill\Model\Subscription
+   */
+  public function updateSubscription(Subscription $subscription)
+  {
+    $requestBody = array(
+        'SERVICE' => 'subscription.update',
+        'DATA' => $subscription->serializeJSONXML()
+    );
+
+    $jsonResponse = $this->validateResponse(
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'STATUS is not equal to success';
+          return isset($response->STATUS) && $response->STATUS === 'success';
+        }
+    );
 
     return $subscription;
   }
@@ -112,5 +136,31 @@ class FastBillAutomaticClient extends AbstractFastBillClient
     }
 
     return $subscriptions;
+  }
+
+  public function getArticles(Array $filters = array())
+  {
+    $requestBody = (object)array(
+        'SERVICE' => 'article.get'
+    );
+
+    $this->filtersToXml($filters, $requestBody);
+
+    $jsonResponse = $this->validateResponse(
+        $this->dispatchRequest(
+            $this->createRequest('POST', '/', $requestBody)
+        ),
+        function ($response, &$msg) {
+          $msg = 'key ARTICLES is not set';
+          return isset($response->ARTICLES);
+        }
+    );
+
+    $articles = array();
+    foreach ($jsonResponse->RESPONSE->ARTICLES as $xmlSubscription) {
+      $articles[] = Article::fromObject($xmlSubscription);
+    }
+
+    return $articles;
   }
 }
