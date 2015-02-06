@@ -25,16 +25,6 @@ class ClientSubscriptionTest extends \FastBill\Model\Test\ModelTestCase {
     $this->assertCount(2, $subscriptions, 'should return the sample customers');
     $this->assertContainsOnlyInstancesOf('FastBill\Model\Subscription', $subscriptions);
 
-    $this->assertEquals(
-      $subscriptions[0]->getSubscriptionId(),
-      388874
-    );
-
-    $this->assertEquals(
-      $subscriptions[1]->getSubscriptionId(),
-      388656
-    );
-
     return;
   }
 }
