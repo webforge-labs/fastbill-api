@@ -2,7 +2,8 @@
 
 namespace FastBill\Api;
 
-class BadRequestException extends \RuntimeException {
+class BadRequestException extends \RuntimeException
+{
 
     protected $errors = array();
 
