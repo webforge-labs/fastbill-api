@@ -16,7 +16,7 @@ class ClientCustomerTest extends \FastBill\Model\Test\ModelTestCase
         $this->chainClass = __NAMESPACE__ . '\\Client';
         parent::setUp();
 
-        $this->client = new \FastBill\Api\MyFastBillClient($this->getGuzzleMocker()->getClient(), $this->fastBillParameters);
+        $this->client = new MyFastBillClient($this->getGuzzleMocker()->getClient('https://my.fastbill.com/'), $this->fastBillParameters);
     }
 
     public function testCustomersAreReturnedUnfiltered()
