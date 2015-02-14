@@ -7,9 +7,11 @@ use Guzzle\HTTP\Client as GuzzleClient;
 class MyFastBillClient extends AbstractFastBillClient
 {
 
-    public function __construct(GuzzleClient $guzzleClient, Array $options)
+    public static function create(Array $options)
     {
-        $guzzleClient->setBaseUrl("https://my.fastbill.com/");
-        parent::__construct($guzzleClient, $options);
+        return new static(
+            new GuzzleClient("https://my.fastbill.com/")
+            $options
+        );
     }
 }
