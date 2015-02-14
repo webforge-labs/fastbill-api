@@ -4,20 +4,16 @@ namespace FastBill\Api;
 
 use FastBill\Model\Customer;
 use FastBill\Model\Invoice;
-use FastBill\Model\InvoiceItem;
 use FastBill\Model\Project;
 use FastBill\Model\Expense;
 use Guzzle\HTTP\Message\Request as GuzzleRequest;
-use Guzzle\HTTP\Message\Response as GuzzleResponse;
 use Guzzle\HTTP\Client as GuzzleClient;
 use InvalidArgumentException;
 use RuntimeException;
-use Assert\Assertion;
 use Webforge\Common\JS\JSONConverter;
 
 abstract class AbstractFastBillClient extends AbstractClient
 {
-
     protected $apiKey, $email;
 
     public function __construct(GuzzleClient $guzzleClient, Array $options)
@@ -53,6 +49,7 @@ abstract class AbstractFastBillClient extends AbstractClient
             ),
             function ($response, &$msg) {
                 $msg = 'STATUS is not equal to success';
+
                 return isset($response->STATUS) && $response->STATUS === 'success';
             }
         );
@@ -82,6 +79,7 @@ abstract class AbstractFastBillClient extends AbstractClient
             ),
             function ($response, &$msg) {
                 $msg = 'key STATUS is not equal to success';
+
                 return isset($response->STATUS) && $response->STATUS === 'success';
             }
         );
@@ -93,7 +91,7 @@ abstract class AbstractFastBillClient extends AbstractClient
 
     public function getCustomers(Array $filters = array())
     {
-        $requestBody = (object)array(
+        $requestBody = (object) array(
             'SERVICE' => 'customer.get'
         );
 
@@ -105,6 +103,7 @@ abstract class AbstractFastBillClient extends AbstractClient
             ),
             function ($response, &$msg) {
                 $msg = 'key CUSTOMERS is not set';
+
                 return isset($response->CUSTOMERS);
             }
         );
@@ -121,9 +120,9 @@ abstract class AbstractFastBillClient extends AbstractClient
     {
         foreach ($filters as $name => $value) {
             if (!empty($value)) {
-
-                if (!isset($requestBody->FILTER))
-                    $requestBody->FILTER = new \stdClass;
+                if (!isset($requestBody->FILTER)) {
+                    $requestBody->FILTER = new \stdClass();
+                }
 
                 $requestBody->FILTER->{mb_strtoupper($name)} = $value;
             }
@@ -132,7 +131,7 @@ abstract class AbstractFastBillClient extends AbstractClient
 
     public function getInvoices(Array $filters = array())
     {
-        $requestBody = (object)array(
+        $requestBody = (object) array(
             'SERVICE' => 'invoice.get'
         );
 
@@ -144,6 +143,7 @@ abstract class AbstractFastBillClient extends AbstractClient
             ),
             function ($response, &$msg) {
                 $msg = 'key INVOICES is not set';
+
                 return isset($response->INVOICES);
             }
         );
@@ -158,7 +158,7 @@ abstract class AbstractFastBillClient extends AbstractClient
 
     public function getProjects(Array $filters = array())
     {
-        $requestBody = (object)array(
+        $requestBody = (object) array(
             'SERVICE' => 'project.get'
         );
 
@@ -170,6 +170,7 @@ abstract class AbstractFastBillClient extends AbstractClient
             ),
             function ($response, &$msg) {
                 $msg = 'key PROJECTS is not set';
+
                 return isset($response->PROJECTS);
             }
         );
@@ -184,7 +185,7 @@ abstract class AbstractFastBillClient extends AbstractClient
 
     public function getExpenses(Array $filters = array())
     {
-        $requestBody = (object)array(
+        $requestBody = (object) array(
             'SERVICE' => 'expense.get'
         );
 
@@ -196,6 +197,7 @@ abstract class AbstractFastBillClient extends AbstractClient
             ),
             function ($response, &$msg) {
                 $msg = 'key EXPENSES is not set';
+
                 return isset($response->EXPENSES);
             }
         );
@@ -226,10 +228,10 @@ abstract class AbstractFastBillClient extends AbstractClient
         $stringified = JSONConverter::create()->stringify($jsonResponse, JSONConverter::PRETTY_PRINT);
 
         if (!isset($jsonResponse->RESPONSE)) {
-            throw new RuntimeException('The property response is expected in jsonResponse. Got: ' . $stringified);
+            throw new RuntimeException('The property response is expected in jsonResponse. Got: '.$stringified);
         }
 
-        $msg = NULL;
+        $msg = null;
         if (!$validateResponse($jsonResponse->RESPONSE, $msg)) {
             throw BadRequestException::fromResponse($jsonResponse);
         }

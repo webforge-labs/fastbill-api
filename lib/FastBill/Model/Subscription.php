@@ -4,7 +4,6 @@ namespace FastBill\Model;
 
 class Subscription extends AbstractModel
 {
-
     protected static $xmlProperties = array(
         'SUBSCRIPTION_ID' => 'subscriptionId',
         'CUSTOMER_ID' => 'customerId',
@@ -27,6 +26,6 @@ class Subscription extends AbstractModel
         'NEXT_EVENT' => 'nextEvent',
         'LAST_EVENT' => 'lastEvent',
         'X_ATTRIBUTES' => 'xAttributes',
-        'PAYPAL_URL' => 'paypalUrl',
+        'PAYPAL_URL' => 'paypalUrl'
     );
 }

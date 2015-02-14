@@ -4,7 +4,6 @@ namespace FastBill\Model;
 
 class Customer extends AbstractModel
 {
-
     const TYPE_BUSINESS = 'business';
     const TYPE_CONSUMER = 'consumer';
 

@@ -8,17 +8,18 @@ use Webforge\Common\String as S;
 
 abstract class ModelTestCase extends \FastBill\Api\Test\Base
 {
-
     protected function assertGetterExists($customer, $getter)
     {
-        if (!S::startsWith('get', $getter)) $getter = 'get' . ucfirst($getter);
+        if (!S::startsWith('get', $getter)) {
+            $getter = 'get'.ucfirst($getter);
+        }
 
         try {
             $value = $customer->$getter();
         } catch (\BadMethodCallException $e) {
-            $this->fail($getter . '() should exist on object');
+            $this->fail($getter.'() should exist on object');
         } catch (\DomainException $e) {
-            $this->fail($getter . '() cannot be called: ' . $e->getMessage());
+            $this->fail($getter.'() cannot be called: '.$e->getMessage());
         }
 
         return $value;
@@ -38,7 +39,7 @@ abstract class ModelTestCase extends \FastBill\Api\Test\Base
     protected function getXMLCustomers()
     {
         return array(
-            'mueller' => (object)array(
+            'mueller' => (object) array(
                 "CUSTOMER_ID" => "460166",
                 "CUSTOMER_NUMBER" => "80",
                 "DAYS_FOR_PAYMENT" => "14",
@@ -72,7 +73,8 @@ abstract class ModelTestCase extends \FastBill\Api\Test\Base
                 "CURRENCY_CODE" => "EUR",
                 "LASTUPDATE" => "2013-10-18 12:34:08",
                 "TAGS" => ""
-            ), 'lightspeed' => (object)array(
+            ),
+            'lightspeed' => (object) array(
                 "CUSTOMER_ID" => "460168",
                 "CUSTOMER_NUMBER" => "81",
                 "DAYS_FOR_PAYMENT" => "0",
@@ -113,29 +115,32 @@ abstract class ModelTestCase extends \FastBill\Api\Test\Base
     protected function getCustomer($slug)
     {
         $customers = $this->getXmlCustomers();
+
         return \FastBill\Model\Customer::fromObject($customers[$slug]);
     }
 
     public function assertIsCustomer($customer)
     {
         $this->assertInstanceOf('FastBill\Model\Customer', $customer);
+
         return $customer;
     }
 
     public function assertIsInvoice($invoice)
     {
         $this->assertInstanceOf('FastBill\Model\Invoice', $invoice);
+
         return $invoice;
     }
 
     protected function getInvoicesXML()
     {
         return array(
-            0 => (object)array(
+            0 => (object) array(
                 "CUSTOMER_ID" => 1,
                 "INVOICE_DATE" => "2013-10-18",
                 "ITEMS" => array(
-                    (object)array(
+                    (object) array(
                         "DESCRIPTION" => "Programmierung",
                         "UNIT_PRICE" => "50.00",
                         "VAT_PERCENT" => 19,
@@ -149,6 +154,7 @@ abstract class ModelTestCase extends \FastBill\Api\Test\Base
     public function getInvoice($slug)
     {
         $invoices = $this->getInvoicesXML();
+
         return \FastBill\Model\Invoice::fromObject($invoices[$slug]);
     }
 }

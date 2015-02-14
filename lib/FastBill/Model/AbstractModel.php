@@ -8,7 +8,6 @@ use stdClass;
 
 abstract class AbstractModel
 {
-
     /**
      * @var array key => XML_NAME_IN_UPPERCASE value => xmlNameInCamelCase
      */
@@ -57,7 +56,7 @@ abstract class AbstractModel
         $propertiesValues = array_replace(
             array_combine(
                 $propertyNames,
-                array_fill(0, count(static::$xmlProperties), NULL)
+                array_fill(0, count(static::$xmlProperties), null)
             ),
             $properties
         );
@@ -75,15 +74,12 @@ abstract class AbstractModel
     {
         $propertiesValues = array();
         foreach (static::$xmlProperties as $xmlName => $propertyName) {
-
             if (isset($object->$xmlName)) {
                 $value = $object->$xmlName;
-
             } elseif (isset($object->$propertyName)) {
                 $value = $object->$propertyName;
-
             } else {
-                $value = NULL;
+                $value = null;
             }
 
             $propertiesValues[$propertyName] = $value;
@@ -108,6 +104,7 @@ abstract class AbstractModel
         }
 
         $this->properties[$name] = $value;
+
         return $this;
     }
 
@@ -116,7 +113,7 @@ abstract class AbstractModel
      */
     public function serializeJSONXML()
     {
-        $json = new \stdClass;
+        $json = new \stdClass();
 
         foreach (static::$xmlProperties as $xmlName => $name) {
             $json->$xmlName = $this->serializeProperty($name, $this->properties[$name], 'serializeJSONXML');
@@ -130,7 +127,7 @@ abstract class AbstractModel
      */
     public function serializeJSON()
     {
-        $json = new \stdClass;
+        $json = new \stdClass();
 
         foreach (static::$xmlProperties as $xmlName => $name) {
             $json->$name = $this->serializeProperty($name, $this->properties[$name], 'serializeJSON');
@@ -150,25 +147,26 @@ abstract class AbstractModel
         }
     }
 
-    public function __call($method, $args = NULL)
+    public function __call($method, $args = null)
     {
-        $prop = mb_strtolower(mb_substr($method, 3, 1)) . mb_substr($method, 4); // ucfirst in mb_string
+        $prop = mb_strtolower(mb_substr($method, 3, 1)).mb_substr($method, 4); // ucfirst in mb_string
 
         if (mb_strpos($method, 'get') === 0) {
             return $this->getProperty($prop);
         }
 
         if (mb_strpos($method, 'set') === 0) {
-            $args = (array)$args;
+            $args = (array) $args;
             array_unshift($args, $prop);
+
             return call_user_func_array(array($this, 'setProperty'), $args);
         }
 
-        throw new BadMethodCallException('Call to undefined method ' . get_class($this) . '::' . $method . '()');
+        throw new BadMethodCallException('Call to undefined method '.get_class($this).'::'.$method.'()');
     }
 
     public function __toString()
     {
-        return __NAMESPACE__ . ': ' . $this->name;
+        return __NAMESPACE__.': '.$this->name;
     }
 }

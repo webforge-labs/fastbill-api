@@ -4,7 +4,6 @@ namespace FastBill\Model;
 
 class InvoiceItem extends AbstractModel
 {
-
     protected static $xmlProperties = array(
         'INVOICE_ITEM_ID' => 'invoiceItemId',
         'ARTICLE_NUMBER' => 'articleNumber',

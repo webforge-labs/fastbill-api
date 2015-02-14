@@ -7,7 +7,6 @@ use Guzzle\HTTP\Message\Request as GuzzleRequest;
 
 abstract class AbstractClient
 {
-
     /**
      * @var Guzzle\HTTP\Client
      */
@@ -27,13 +26,13 @@ abstract class AbstractClient
     {
         $response = $request->send();
 
-        return $this->parseJSON($json = (string)$response->getBody());
+        return $this->parseJSON($json = (string) $response->getBody());
     }
 
     /**
      * @return Guzzle\HTTP\Message\Request
      */
-    public function createRequest($method, $relativeResource, $body = NULL)
+    public function createRequest($method, $relativeResource, $body = null)
     {
         $request = $this->guzzle->createRequest($method, $this->expandurl($relativeResource));
         $this->initRequest($request);
@@ -83,7 +82,7 @@ abstract class AbstractClient
         }
 
         if ($json === NULL) {
-            throw new \RuntimeException('API does return invalid JSON: <<<JSON' . "\n" . $jsonString . "\nJSON");
+            throw new \RuntimeException('API does return invalid JSON: <<<JSON'."\n".$jsonString."\nJSON");
         }
 
         return $json;

@@ -4,7 +4,6 @@ namespace FastBill\Model;
 
 class Expense extends AbstractModel
 {
-
     protected static $xmlProperties = array(
         'ORGANIZATION' => 'organization',
 

@@ -4,7 +4,6 @@ namespace FastBill\Model;
 
 class Article extends AbstractModel
 {
-
     protected static $xmlProperties = array(
         'ARTICLE_NUMBER' => 'articleNumber',
         'TITLE' => 'title',

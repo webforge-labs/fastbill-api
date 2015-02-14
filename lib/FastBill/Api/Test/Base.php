@@ -6,7 +6,6 @@ use Webforge\Code\Test\GuzzleMocker;
 use Guzzle\HTTP\Client as GuzzleClient;
 use Guzzle\HTTP\Message\Request as GuzzleRequest;
 use Guzzle\HTTP\Message\Response as GuzzleResponse;
-use Guzzle\Tests\Http\Message\HeaderComparison;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 use Webforge\Common\JS\JSONConverter;
 use Webforge\Common\System\File;
@@ -16,7 +15,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class Base extends \Webforge\Code\Test\Base
 {
-
     protected $guzzleMocker;
 
     protected $config;
@@ -24,8 +22,8 @@ class Base extends \Webforge\Code\Test\Base
     /**
      * if true then one facility has returned the debug output for this test
      */
-    protected $debugged = FALSE;
-    protected $isAcceptanceTest = FALSE;
+    protected $debugged = false;
+    protected $isAcceptanceTest = false;
 
     /**
      * @var GuzzleClient
@@ -88,10 +86,9 @@ class Base extends \Webforge\Code\Test\Base
 
         try {
             return $this->response = $request->send();
-
         } catch (\Guzzle\Http\Exception\BadResponseException $e) {
             $this->response = $e->getResponse();
-            $this->debugged = TRUE;
+            $this->debugged = true;
 
             $this->fail($this->getRequestResponseDebug());
         }
@@ -108,21 +105,21 @@ class Base extends \Webforge\Code\Test\Base
     {
         $response = $this->dispatch($request);
 
-        return (string)$response->getBody();
+        return (string) $response->getBody();
     }
 
     /**
-     * @param string $type object|array
+     * @param  string      $type object|array
      * @return decodedJson
      */
     protected function assertJSONResponse($response, $type = 'object')
     {
         if ($response instanceof GuzzleResponse) {
-            $body = (string)$response->getBody();
+            $body = (string) $response->getBody();
         } elseif ($response instanceof SymfonyResponse) {
-            $body = (string)$response->getContent();
+            $body = (string) $response->getContent();
         } else {
-            $this->fail('unknown response type: ' . gettype($response));
+            $this->fail('unknown response type: '.gettype($response));
         }
 
         try {
@@ -146,24 +143,24 @@ class Base extends \Webforge\Code\Test\Base
 
     protected function getRequestResponseDebug()
     {
-        $msg = '------------ Failing Test ------------' . "\n";
+        $msg = '------------ Failing Test ------------'."\n";
 
         if (isset($this->request)) {
-            $msg .= '--------- Request ---------' . "\n";
-            $msg .= $this->request . "\n";
+            $msg .= '--------- Request ---------'."\n";
+            $msg .= $this->request."\n";
         }
 
         if (isset($this->response)) {
-            $msg .= '--------- Response ---------' . "\n";
+            $msg .= '--------- Response ---------'."\n";
             $msg .= $this->response;
             $msg .= "\n";
         }
 
         if (!isset($this->response) && !isset($this->request)) {
-            $msg .= " (no debug info)" . "\n";
+            $msg .= " (no debug info)"."\n";
         }
 
-        $msg .= '------------ / Failing Test ------------' . "\n";
+        $msg .= '------------ / Failing Test ------------'."\n";
 
         return $msg;
     }
@@ -171,6 +168,7 @@ class Base extends \Webforge\Code\Test\Base
     protected function injectMockedSession()
     {
         $this->container->injectSession($session = new Session(new MockArraySessionStorage()));
+
         return $session;
     }
 
@@ -196,7 +194,7 @@ class Base extends \Webforge\Code\Test\Base
     protected function assertGuzzleRequestEquals(File $file, GuzzleRequest $request)
     {
         $expectedRequest = \Guzzle\Http\Message\RequestFactory::getInstance()->fromMessage($file->getContents());
-        $this->assertInstanceOf('Guzzle\Http\Message\Request', $expectedRequest, 'Could not parse the request from file: ' . $file . ' ');
+        $this->assertInstanceOf('Guzzle\Http\Message\Request', $expectedRequest, 'Could not parse the request from file: '.$file.' ');
 
         $expectedHeaders = $expectedRequest->getHeaders()->toArray();
 
@@ -209,11 +207,11 @@ class Base extends \Webforge\Code\Test\Base
         $this->assertEquals(
             A::filterKeys($expectedHeaders, $filter),
             A::filterKeys($actualHeaders, $filter),
-            'Request (Headers) do not match expected Request (Headers) in: ' . $file
+            'Request (Headers) do not match expected Request (Headers) in: '.$file
         );
 
-        $expectedBody = (string)$expectedRequest->getBody();
-        $actualBody = (string)$request->getBody();
+        $expectedBody = (string) $expectedRequest->getBody();
+        $actualBody = (string) $request->getBody();
 
         if (mb_strpos($expectedRequest->getHeader('Content-Type'), 'application/json') !== FALSE) {
             $jsonc = JSONConverter::create();
@@ -227,7 +225,7 @@ class Base extends \Webforge\Code\Test\Base
         $this->assertEquals(
             $expectedBody,
             $actualBody,
-            'Request (Body) does not match expected Request (Body) in: ' . $file
+            'Request (Body) does not match expected Request (Body) in: '.$file
         );
     }
 }

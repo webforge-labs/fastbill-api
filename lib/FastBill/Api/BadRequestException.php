@@ -4,7 +4,6 @@ namespace FastBill\Api;
 
 class BadRequestException extends \RuntimeException
 {
-
     protected $errors = array();
 
     public static function fromResponse(\stdClass $jsonResponse)
@@ -14,7 +13,7 @@ class BadRequestException extends \RuntimeException
         if (isset($jsonResponse->RESPONSE->ERRORS)) {
             $errors = $jsonResponse->RESPONSE->ERRORS;
 
-            $e = new static($msg . implode("\n", $errors));
+            $e = new static($msg.implode("\n", $errors));
             $e->setErrors($errors);
         } else {
             $e = new static($msg);
@@ -22,7 +21,6 @@ class BadRequestException extends \RuntimeException
 
         return $e;
     }
-
 
     /**
      * @param array $errors
