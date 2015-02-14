@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Jan 2015 12:08:16 GMT
+Server: Apache
+Cache-Control: no-store
+Last-Modified: Fri, 23 Jan 2015 12:08:16 GMT
+P3P: CP="CAO PSA OUR"
+Set-Cookie: FastBillSESSID=ar0bgneqf584a7c3c5eqppvhv4; path=/
+Vary: Accept-Encoding
+Content-Length: 698
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+{"REQUEST":{"SERVICE":"customer.create","DATA":{"CUSTOMER_ID":[],"CUSTOMER_NUMBER":[],"CREATED":[],"CUSTOMER_TYPE":[],"TOP":[],"ORGANIZATION":"[A] [C]ompany that [M]anufactures [E]verything Inc.","POSITION":[],"SALUTATION":[],"FIRST_NAME":[],"LAST_NAME":[],"ADDRESS":[],"ADDRESS_2":[],"ZIPCODE":[],"CITY":[],"COUNTRY_CODE":"US","PHONE":[],"PHONE_2":[],"FAX":[],"MOBILE":[],"EMAIL":[],"NEWSLETTER_OPTIN":[],"LASTUPDATE":[],"TAGS":[],"ACCOUNT_RECEIVABLE":[],"CURRENCY_CODE":[],"VAT_ID":[],"DAYS_FOR_PAYMENT":[],"PAYMENT_TYPE":6,"SHOW_PAYMENT_NOTICE":[],"BANK_NAME":[],"BANK_CODE":[],"BANK_ACCOUNT_NUMBER":[],"BANK_ACCOUNT_OWNER":[]}},"RESPONSE":{"ERRORS":["missing \/ invalid field: CUSTOMER_TYPE"]}}

@@ -3,10 +3,6 @@
 namespace FastBill\Api;
 
 use FastBill\Model\Customer;
-use Webforge\Common\System\File;
-use Guzzle\Http\Message\Request as GuzzleRequest;
-use Webforge\Common\String as S;
-use Webforge\Common\Preg;
 
 class ClientCustomerTest extends \FastBill\Model\Test\ModelTestCase
 {
@@ -81,5 +77,26 @@ class ClientCustomerTest extends \FastBill\Model\Test\ModelTestCase
             $this->getTestDirectory('requests/FastBill/')->getFile('create-customer.guzzle-request'),
             $createRequest
         );
+    }
+
+    public function testBadRequestToTheApiThrowsException_forMissingFields() 
+    {
+        $this->getGuzzleMocker()->addResponse('FastBill/missing-fields');
+
+        $this->setExpectedException('RuntimeException', 'missing / invalid field: CUSTOMER_TYPE');
+
+        try {
+            $this->client->createCustomer(
+                Customer::fromArray(array(
+                    // customerType is missing in this request
+                    'organization'=>'[A] [C]ompany that [M]anufactures [E]verything Inc.',
+                    'countryCode'=>'US',
+                    'paymentType'=>Customer::PAYMENT_CREDITCARD
+                ))
+            );
+        } catch (\RuntimeException $e) {
+            //$this->getGuzzleMocker()->recordLastResponse('FastBill/missing-fields');
+            throw $e;
+        }
     }
 }
