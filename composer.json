@@ -1,20 +1,26 @@
 {
-  "name":"webforge/fastbill-api",
-  "authors":[
+  "name": "webforge/fastbill-api",
+  "authors": [
     {
-      "name":"Philipp Scheit",
-      "email":"p.scheit@ps-webforge.com"
+      "name": "Philipp Scheit",
+      "email": "p.scheit@ps-webforge.com"
     }
   ],
   "license": "MIT",
-  "minimum-stability":"dev",
-  "autoload":{
-    "psr-0":{
-      "FastBill\\Api":["lib/", "tests/"],
-      "FastBill\\Model":["lib/", "tests/"]
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-0": {
+      "FastBill\\Api": [
+        "lib/",
+        "tests/"
+      ],
+      "FastBill\\Model": [
+        "lib/",
+        "tests/"
+      ]
     }
   },
-  "require":{
+  "require": {
     "beberlei/assert": "1.6@stable",
     "webforge/common": ">=1.7.1",
     "guzzle/guzzle": "3.7.*@stable"
@@ -23,9 +29,9 @@
     "webforge/testplate": "1.*",
     "webforge/dom": "1.*@dev"
   },
-  "extra":{
-    "branch-alias":{
-      "dev-master":"1.0.x-dev"
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
     }
   }
 }

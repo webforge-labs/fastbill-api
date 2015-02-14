@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "3dc772ddf0e7144f5b0236d1536e8c1b",
+    "hash": "86c773bc6f4bde509b88a88480f1626f",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -611,12 +612,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/webforge-labs/webforge-testplate.git",
-                "reference": "067d66d9a4bb68fd36913cf52d666d7b63fcfdf4"
+                "reference": "0052870494ce895979bcb564b7d91a322fbf95c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webforge-labs/webforge-testplate/zipball/067d66d9a4bb68fd36913cf52d666d7b63fcfdf4",
-                "reference": "067d66d9a4bb68fd36913cf52d666d7b63fcfdf4",
+                "url": "https://api.github.com/repos/webforge-labs/webforge-testplate/zipball/0052870494ce895979bcb564b7d91a322fbf95c3",
+                "reference": "0052870494ce895979bcb564b7d91a322fbf95c3",
                 "shasum": ""
             },
             "require": {
@@ -626,8 +627,7 @@
                 "liip/rmt": "0.9.*",
                 "pscheit/psc-cms": "dev-master",
                 "webforge/dom": "*",
-                "webforge/translation": "dev-master",
-                "webforge/webforge": "dev-master"
+                "webforge/translation": "dev-master"
             },
             "suggest": {
                 "guzzle/guzzle": "Needed for the GuzzleTester",
@@ -637,12 +637,16 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.5.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
                     "Webforge\\Code\\Test": [
+                        "lib/",
+                        "tests/"
+                    ],
+                    "Webforge\\Testplate": [
                         "lib/",
                         "tests/"
                     ]
@@ -659,22 +663,18 @@
                 }
             ],
             "description": "Testplate for webforge for base testcases",
-            "time": "2013-11-19 14:32:00"
+            "time": "2014-08-04 08:03:39"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "beberlei/assert": 0,
         "guzzle/guzzle": 0,
         "webforge/dom": 20
     },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }

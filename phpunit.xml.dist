@@ -9,7 +9,7 @@
          stopOnFailure="false"
          syntaxCheck="false"
          bootstrap="./bootstrap.php"
->
+        >
     <testsuites>
         <testsuite name="FastBill API">
             <directory suffix="Test.php">./tests</directory>
@@ -17,8 +17,8 @@
     </testsuites>
 
     <filter>
-      <whitelist>
-        <directory suffix=".php">lib/FastBill</directory>
-      </whitelist>
+        <whitelist>
+            <directory suffix=".php">lib/FastBill</directory>
+        </whitelist>
     </filter>
 </phpunit>
