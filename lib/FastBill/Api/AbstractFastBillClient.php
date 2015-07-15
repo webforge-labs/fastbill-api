@@ -89,13 +89,9 @@ abstract class AbstractFastBillClient extends AbstractClient
         return $customer;
     }
 
-    public function getCustomers(Array $filters = array())
+    public function getCustomers(Array $filters = array(), Array $props = array())
     {
-        $requestBody = (object) array(
-            'SERVICE' => 'customer.get'
-        );
-
-        $this->filtersToXml($filters, $requestBody);
+        $requestBody = $this->createRequestBody('customer.get', $filters, $props);
 
         $jsonResponse = $this->validateResponse(
             $this->dispatchRequest(
@@ -129,13 +125,24 @@ abstract class AbstractFastBillClient extends AbstractClient
         }
     }
 
-    public function getInvoices(Array $filters = array())
+    protected function createRequestBody($service, Array $filters = array(), Array $props = array())
     {
-        $requestBody = (object) array(
-            'SERVICE' => 'invoice.get'
-        );
+        $props['service'] = $service;
+
+        $requestBody = new \stdClass;
 
         $this->filtersToXml($filters, $requestBody);
+
+        foreach ($props as $prop => $value) {
+            $requestBody->{mb_strtoupper($prop)} = $value;
+        }
+
+        return $requestBody;
+    }
+
+    public function getInvoices(Array $filters = array(), Array $props = array())
+    {
+        $requestBody = $this->createRequestBody('invoice.get', $filters, $props);
 
         $jsonResponse = $this->validateResponse(
             $this->dispatchRequest(
@@ -156,13 +163,9 @@ abstract class AbstractFastBillClient extends AbstractClient
         return $invoices;
     }
 
-    public function getProjects(Array $filters = array())
+    public function getProjects(Array $filters = array(), Array $props = array())
     {
-        $requestBody = (object) array(
-            'SERVICE' => 'project.get'
-        );
-
-        $this->filtersToXml($filters, $requestBody);
+        $requestBody = $this->createRequestBody('project.get', $filters, $props);
 
         $jsonResponse = $this->validateResponse(
             $this->dispatchRequest(
@@ -183,13 +186,9 @@ abstract class AbstractFastBillClient extends AbstractClient
         return $projects;
     }
 
-    public function getExpenses(Array $filters = array())
+    public function getExpenses(Array $filters = array(), Array $props = array())
     {
-        $requestBody = (object) array(
-            'SERVICE' => 'expense.get'
-        );
-
-        $this->filtersToXml($filters, $requestBody);
+        $requestBody = $this->createRequestBody('expense.get', $filters, $props);
 
         $jsonResponse = $this->validateResponse(
             $this->dispatchRequest(
