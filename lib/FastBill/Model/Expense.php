@@ -12,6 +12,8 @@ class Expense extends AbstractModel
         'DUE_DATE' => 'dueDate',
         'COMMENT' => 'comment',
 
+        'PAID_DATE'=>'paidDate',
+
         'CURRENCY_CODE' => 'currencyCode',
         'SUB_TOTAL' => 'subTotal',
         'VAT_TOTAL' => 'vatTotal',
