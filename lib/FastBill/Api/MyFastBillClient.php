@@ -2,7 +2,7 @@
 
 namespace FastBill\Api;
 
-use Guzzle\HTTP\Client as GuzzleClient;
+use Guzzle\Http\Client as GuzzleClient;
 
 class MyFastBillClient extends AbstractFastBillClient
 {
